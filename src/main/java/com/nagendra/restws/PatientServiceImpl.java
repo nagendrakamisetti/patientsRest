@@ -26,6 +26,12 @@ public class PatientServiceImpl implements PatientService {
 		patient.setName("Nagendra");
 
 		patients.put(patient.getId(), patient);
+		
+		patient = new Patient();
+		patient.setId(456);
+		patient.setName("John");
+		
+		patients.put(patient.getId(), patient);
 	}
 
 	@Override
@@ -33,6 +39,12 @@ public class PatientServiceImpl implements PatientService {
 		Collection<Patient> tempPatients = patients.values();
 		List<Patient> list = new ArrayList<>(tempPatients);
 		return list;
+	}
+
+	@Override
+	public Patient getPatient(Long id) {
+		System.out.println("Hello World");
+		return patients.get(id);
 	}
 
 }
